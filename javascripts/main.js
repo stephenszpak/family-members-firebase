@@ -24,19 +24,19 @@ $(document).ready(function(){
 	    apiKeys = keys;
 	    firebase.initializeApp(apiKeys);
 	});
+
 	showFamilyDom();
 
 	$("#submitMember").on("click", function() {
-		let skillArr = [];
-		let skills = $("#addSkills").val();
-		skillArr.push(skills);
-		console.log(skills);
+
+		let skillArr = $("#addSkills").val().split(",");
+
 		
 		let newMember = {
 			"name": $("#addName").val(),
 			"age": $("#addAge").val(),
 			"gender": $("#addGender").val(),
-			"skills": skills
+			"skills": skillArr
 		};
 		myFam.addFamilyMember(apiKeys, newMember).then(function() {
 			showFamilyDom();
@@ -49,8 +49,6 @@ $(document).ready(function(){
 			showFamilyDom();
 		});
 	});
-
-	// showFamilyDom();
 
 
 

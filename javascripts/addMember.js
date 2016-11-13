@@ -48,7 +48,8 @@ var myFam = (function(family) {
 				reject(error);
 			});
 		});
-	};	
+	};
+
 return family;
 
 })(myFam || {});
